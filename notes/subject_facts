@@ -1,0 +1,30 @@
+Basic Facts From Subject:
+
+Exception classes don't have to be OCF
+
+There is some initial fluff that doesn't mean anything
+
+	Bureaucrat class
+		name		 	- const std::string
+		grade			- a 1 to 150 int
+
+	Any instantiation of a Bureaucrat with an invalid grade must throw an exception.
+
+		Bureaucrat::GradeTooHighException (over 150)
+		Bureaucrat::GradeTooLowException (under 1)
+
+	You will provide getters:
+		
+			std::string	getName(void) const
+			void	setName(std::string)
+
+	 incrementGrade() // <--lowers grade 3 to grade 2
+	 decrementGrade() // <--raises grade 2 to grade 3
+
+
+	 Thrown exceptions must be catchable using try/catch blocks:
+
+	 Overload operater<<  to print some stament like: _name << ", bureaucrat grade " << _grade << std::endl;
+
+	
+	
