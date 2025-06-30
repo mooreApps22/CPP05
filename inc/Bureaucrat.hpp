@@ -3,11 +3,15 @@
 
 class Bureaucrat
 {
-    private:
-        const std::string	_name;
-		unsigned int		_grade;
     public:
-        Bureaucrat(const std::string& name, unsigned int grade);
+		// Bureaucrat Utils
+		void			decrementGrade(void);
+		void			incrementGrade(void);
+		std::string		getName(void) const;
+		int				getGrade(void) const;
+		// Member Functions
+        Bureaucrat();
+        Bureaucrat(const std::string& name, int grade);
         Bureaucrat(const Bureaucrat& other);
         Bureaucrat& operator=(const Bureaucrat& other);
         ~Bureaucrat();
@@ -23,5 +27,7 @@ class Bureaucrat
 			public:
 				const char *what() const throw();
 		};
-
+    private:
+        const std::string	_name;
+		int					_grade;
 };
