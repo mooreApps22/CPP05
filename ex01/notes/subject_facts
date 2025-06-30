@@ -1,1 +1,30 @@
 Basic Facts From Subject:
+
+	Form Class
+		
+		private:
+			constant name
+			boolean for if Form is signed (at construction, it's not)
+			constant grade (a requirement to sign it)
+			constant grade required ot execute it 
+	
+		Forms grades follow the same rules as Bureaucrat grades
+			Form::GradeTooHighException // under 1
+			Form::GradeLowHighException // over 150
+
+		Getters:
+			getName(void)
+			gradeRequirement(void)
+			executionRequirement(void)
+			hasBeenSigned(void)
+
+		Operator Overload:
+			<< must print all the forms informations
+
+		Utils:
+			Form::beSigned(Bureaucrat& buddy) // changes the form status to signed if buddy's grade is high enough (=<)
+				throw exception if out of range 
+
+			Bureaucrat::signForm(Form& paper, std::string reason) // 
+				- outputs <bureaucratName> signed <formName>
+				- OR <bureaucratName> couldn't sign <formName> because <reason>
