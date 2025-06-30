@@ -10,10 +10,12 @@ NAME = try
 CPP = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow -g3
 INC_DIR = ./inc
-HEADERS = $(INC_DIR)/data.hpp
+HEADERS = $(INC_DIR)/data.hpp \
+			$(INC_DIR)/Bureaucrat.hpp
 			
 SRC_DIR = ./src
-SRCS = $(SRC_DIR)/main.cpp
+SRCS = $(SRC_DIR)/main.cpp \
+		$(SRC_DIR)/main.cpp
 			
 OBJ_DIR = ./obj
 OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
