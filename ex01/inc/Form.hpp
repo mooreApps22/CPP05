@@ -1,6 +1,8 @@
 #pragma once
 # include <iostream>
 /*
+	Form::beSigned(Bureaucrat& buddy) // changes the form status to signed if buddy's grade is high enough (=<)
+		throw exception if out of range 
 */
 
 class Form
@@ -8,9 +10,10 @@ class Form
     public:
 		//Utils
 		const std::string	getName(void) const;
-		const int			gradeRequirement(void) const;
-		const int			executionRequirement(void) const;
+		const int			signGradeRequired(void) const;
+		const int			execGradeRequired(void) const;
 		bool				hasBeenSigned(void) const;
+		void				beSigned(Bureaucrat& buddy);
 				
 		//Special Members
         Form();

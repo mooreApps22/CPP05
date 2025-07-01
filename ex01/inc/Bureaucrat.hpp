@@ -1,10 +1,17 @@
 #pragma once
 # include <iostream>
 
+/*
+	Bureaucrat::signForm(Form& paper, std::string reason) // 
+		- outputs <bureaucratName> signed <formName>
+		- OR <bureaucratName> couldn't sign <formName> because <reason>
+*/
+
 class Bureaucrat
 {
     public:
 		// Bureaucrat Utils
+		void			signForm(Form& paper, std::string reason);
 		void			decrementGrade(void);
 		void			incrementGrade(void);
 		std::string		getName(void) const;
