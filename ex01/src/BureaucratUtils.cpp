@@ -1,4 +1,10 @@
-#include "../inc/Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
+
+void	Bureaucrat::signForm(Form& paper)
+{
+	paper.beSigned(*this, "level not high enough.");
+}
 
 void	Bureaucrat::incrementGrade(void) // <--lowers grade 3 to grade 2
 {

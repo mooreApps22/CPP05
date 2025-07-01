@@ -1,10 +1,14 @@
 #pragma once
 # include <iostream>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
     public:
 		// Bureaucrat Utils
+		void			signForm(Form& paper);
 		void			decrementGrade(void);
 		void			incrementGrade(void);
 		std::string		getName(void) const;

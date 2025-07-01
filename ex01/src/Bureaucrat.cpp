@@ -1,8 +1,10 @@
 #include "../inc/Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("Bernie Sanders"), _grade(50) {}
+Bureaucrat::Bureaucrat() : _name("Bernie Sanders"), _grade(50) 
+{}
 
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) 
+Bureaucrat::Bureaucrat(const std::string& name, int grade) :
+	_name(name)
 {
 	if (grade > 150)
 		throw GradeTooLowException();
@@ -19,7 +21,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(oth
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
 	if (this != &other)
+	{
 		this->_grade = other._grade;
+	}
 	return (*this);
 }
 

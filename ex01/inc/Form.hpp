@@ -1,20 +1,25 @@
 #pragma once
 # include <iostream>
+# include "Bureaucrat.hpp"
+
 /*
 */
+class Bureaucrat;
 
 class Form
 {
     public:
 		//Utils
+		void				beSigned(Bureaucrat& buddy, std::string reason);
 		const std::string	getName(void) const;
-		const int			gradeRequirement(void) const;
-		const int			executionRequirement(void) const;
+		int					gradeRequirement(void) const;
+		int					executionRequirement(void) const;
 		bool				hasBeenSigned(void) const;
 				
 		//Special Members
+
         Form();
-        Form(const std::string& name);
+        Form(const std::string& name, const int gradeSignReq, const int gradeExecReq);
         Form(const Form& other);
         Form& operator=(const Form& other);
         ~Form();
@@ -27,6 +32,12 @@ class Form
 		};
 
 		class GradeTooHighException : public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
+
+		class BureaucratGradeTooLowException : public std::exception
 		{
 			public:
 				const char *what() const throw();
