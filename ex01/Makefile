@@ -18,7 +18,9 @@ SRC_DIR = ./src
 SRCS = $(SRC_DIR)/main.cpp \
 		$(SRC_DIR)/data.cpp \
 		$(SRC_DIR)/Bureaucrat.cpp \
-		$(SRC_DIR)/BureaucratUtils.cpp
+		$(SRC_DIR)/Form.cpp \
+		$(SRC_DIR)/BureaucratUtils.cpp \
+		$(SRC_DIR)/FormUtils.cpp
 			
 OBJ_DIR = ./obj
 OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)

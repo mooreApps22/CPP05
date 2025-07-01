@@ -1,10 +1,6 @@
-#include "../inc/Form.hpp"
-
-/*
-		Operator Overload:
-			<< must print all the forms informations
-*/
-
+#include "Form.hpp"
+#include <iostream>
+#include <string>
 
 const std::string	Form::getName(void) const
 {
@@ -15,25 +11,35 @@ bool	Form::hasBeenSigned(void) const
 {
 	return (_isSigned);
 }
-		 
-const int	Form::signGradeRequired(void) const
+
+int	Form::gradeRequirement(void) const
 {
 	return (_gradeSignRequirement);
 }
-
-const int	Form::execGradeRequired(void) const
+int	Form::executionRequirement(void) const
 {
 	return (_gradeExecRequirement);
 }
 
-void	Form::beSigned(Bureaucrat& buddy)
+void	Form::beSigned(Bureaucrat& buddy, std::string reason)
 {
-	if (_isSigned)
+	try
 	{
-		std::cout << _name << " has already been signed, " << buddy->getName();
+		if (buddy.getGrade() > _gradeSignRequirement)
+			throw BureaucratGradeTooLowException();
+	}
+	catch (const std::exception& err)
+	{
+		std::cerr << "EXECPTION CAUGHT: " << err.what() << std::endl;
+		std::cout << buddy.getName() << " couldn't sign " << _name << " because " << reason << std::endl;
 		return ;
 	}
-	if (buddy.getGrade() > _gradeSignRequirement)
-		throw gradeTooLowException();
 	_isSigned = true;
+	std::cout << buddy.getName() << " signed " << _name << std::endl;
+}
+
+
+const char*	Form::BureaucratGradeTooLowException::what() const throw()
+{
+	return ("This bureaucrat's grade level is not high enough!");
 }
