@@ -14,7 +14,9 @@ INC_DIR = ./inc
 HEADERS = $(INC_DIR)/data.hpp \
 			$(INC_DIR)/Bureaucrat.hpp \
 			$(INC_DIR)/AForm.hpp \
-			$(INC_DIR)/ShrubberyCreationForm.hpp
+			$(INC_DIR)/RobotomyRequestForm.hpp \
+			$(INC_DIR)/ShrubberyCreationForm.hpp \
+			$(INC_DIR)/PresidentialPardonForm.hpp
 			
 SRC_DIR = ./src
 SRCS = $(SRC_DIR)/main.cpp \
@@ -22,6 +24,8 @@ SRCS = $(SRC_DIR)/main.cpp \
 		$(SRC_DIR)/Bureaucrat.cpp \
 		$(SRC_DIR)/AForm.cpp \
 		$(SRC_DIR)/ShrubberyCreationForm.cpp \
+		$(SRC_DIR)/RobotomyRequestForm.cpp \
+		$(SRC_DIR)/PresidentialPardonForm.cpp \
 		$(SRC_DIR)/BureaucratUtils.cpp \
 		$(SRC_DIR)/AFormUtils.cpp
 			

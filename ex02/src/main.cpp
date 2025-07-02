@@ -3,8 +3,10 @@
 #include "Bureaucrat.hpp" 
 #include "AForm.hpp" 
 #include "ShrubberyCreationForm.hpp" 
+#include "RobotomyRequestForm.hpp" 
+#include "PresidentialPardonForm.hpp" 
 
-void	setup(Bureaucrat*& b1, AForm*& f1)
+void	setupSimulation(Bureaucrat*& b1, AForm*& f1)
 {
 	while (true)
 	{
@@ -19,20 +21,36 @@ void	setup(Bureaucrat*& b1, AForm*& f1)
 
 		std::string	target;	
 		std::cout << "Enter a targets name: ";
+		std::cin >> target;
 
 		try
 		{
 			b1 = new Bureaucrat(name, grade);
-			f1 = new ShrubberyCreationForm(target);	
+			f1 = new PresidentialPardonForm(target);	
 			break ;
 		}
 		catch (const std::exception& ex)
 		{
-			std::cerr << "EXCEPTION CAUGHT: " << ex.what() << std::endl;
+			std::cerr << "\tEXCEPTION CAUGHT: " << ex.what() << std::endl;
 			continue ;
 		}
 	}
 
+	std::cout << *b1;
+	std::cout << *f1;
+}
+
+void runSimulation(Bureaucrat*& b1, AForm*& f1)
+{
+	try 
+	{
+		b1->signForm(*f1);
+		f1->execute(*b1);
+	}
+	catch (const std::exception& ex)
+	{
+		std::cerr << "\tEXCEPTION CAUGHT: " << ex.what() << std::endl;
+	}
 	std::cout << *b1;
 	std::cout << *f1;
 }
@@ -42,17 +60,10 @@ int	main(void)
 	Bureaucrat*	b1 = NULL;
 	AForm*		f1 = NULL;
 
-	setup(b1, f1);
+	setupSimulation(b1, f1);
+	runSimulation(b1, f1);
 
-	
-	try 
-	{
-		b1->signForm(*f1);
-	}
-	catch (const std::exception& ex)
-	{
-		std::cerr << "EXCEPTION CAUGHT: " << ex.what() << std::endl;
-	}
+	std::cout << *b1;
 	std::cout << *f1;
 
 	delete b1;

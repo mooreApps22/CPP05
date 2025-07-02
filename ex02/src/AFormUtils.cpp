@@ -23,14 +23,16 @@ int	AForm::executionRequirement(void) const
 
 void	AForm::beSigned(Bureaucrat& buddy, std::string reason)
 {
+	std::cout << "Buddy's grade level: " << buddy.getGrade() << std::endl;
 	try
 	{
+		std::cout << "Sign Grade Req: " << _gradeSignRequirement << std::endl;
 		if (buddy.getGrade() > _gradeSignRequirement)
 			throw BureaucratGradeTooLowException();
 	}
 	catch (const std::exception& err)
 	{
-		std::cerr << "EXECPTION CAUGHT: " << err.what() << std::endl;
+		std::cerr << "\tEXECPTION CAUGHT: " << err.what() << std::endl;
 		std::cout << buddy.getName() << " couldn't sign " << _name << " because " << reason << std::endl;
 		return ;
 	}

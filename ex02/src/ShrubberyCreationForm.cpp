@@ -30,22 +30,34 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	if (!this->hasBeenSigned())
-		throw std::runtime_error("Form not signed");
-	
-	if (executor.getGrade() > this->executionRequirement())
+	if (!this->AForm::hasBeenSigned())
+		throw std::runtime_error("Form not signed, can't execute.");
+	if (executor.getGrade() > this->AForm::executionRequirement())
 		throw AForm::GradeTooLowException();
-	
 	std::ofstream ofs((_target + "_shrubbery").c_str());
 	if (!ofs)
 		throw std::runtime_error("File creation failed");
 	
-	ofs << " x" << std::endl;
-	ofs << "xxx" << std::endl;
-	ofs << " x " << std::endl;
-	ofs << "xxx" << std::endl;
-	ofs << " x " << std::endl;
-	ofs << "xxx" << std::endl;
-	ofs << " x " << std::endl;
+	ofs << "   x" << std::endl;
+	ofs << "  xxx" << std::endl;
+	ofs << " xxxxx " << std::endl;
+	ofs << "   x   " << std::endl;
+	ofs << "       " << std::endl;
+	ofs << "   x" << std::endl;
+	ofs << "  xxx" << std::endl;
+	ofs << " xxxxx " << std::endl;
+	ofs << "   x   " << std::endl;
+	ofs << "       " << std::endl;
+	ofs << "   x" << std::endl;
+	ofs << "  xxx" << std::endl;
+	ofs << " xxxxx " << std::endl;
+	ofs << "   x   " << std::endl;
 	ofs.close();
 }
+
+void	ShrubberyCreationForm::beSigned(Bureaucrat& buddy)
+{
+	std::cout << std::endl << "Attempting to sign Shrubbery Creation Form... " << std::endl;
+	AForm::beSigned(buddy, " you must be grade 147 to sign and 137 to execute.");
+}
+

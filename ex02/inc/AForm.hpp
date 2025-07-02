@@ -16,8 +16,7 @@ class AForm
 		virtual	void	execute(Bureaucrat const& executor) const = 0;
 
 		//To Be Overridden
-		virtual void				beSigned(Bureaucrat& buddy);
-		virtual void				beSigned(Bureaucrat& buddy, std::string reason);
+		virtual void		beSigned(Bureaucrat& buddy, std::string reason);
 
 		//Utils
 		const std::string	getName(void) const;

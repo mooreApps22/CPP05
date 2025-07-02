@@ -6,6 +6,7 @@ class ShrubberyCreationForm : public AForm
 {
     public:
 		//Utils
+		void	beSigned(Bureaucrat& buddy);
 		void	execute(Bureaucrat const& executor) const;
 
 		// Special Member Functions

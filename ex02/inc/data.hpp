@@ -3,5 +3,4 @@
 #include "Bureaucrat.hpp"
 
 std::ostream&	operator<<(std::ostream& out, const Bureaucrat& buddy);
-
-std::ostream& operator<<(std::ostream& out, const AForm& paper);
+std::ostream&	operator<<(std::ostream& out, const AForm& paper);
