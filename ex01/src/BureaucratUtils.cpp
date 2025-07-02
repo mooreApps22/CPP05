@@ -3,6 +3,7 @@
 
 void	Bureaucrat::signForm(Form& paper)
 {
+	std::cout << "Calling paper.beSigned()." << std::endl;
 	paper.beSigned(*this, "level not high enough.");
 }
 
