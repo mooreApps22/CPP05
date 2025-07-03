@@ -55,8 +55,10 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	ofs.close();
 }
 
-void	ShrubberyCreationForm::beSigned(Bureaucrat& buddy)
+void	ShrubberyCreationForm::beSigned(Bureaucrat& buddy, std::string reason)
 {
+	(void)reason;
+
 	std::cout << std::endl << "Attempting to sign Shrubbery Creation Form... " << std::endl;
 	AForm::beSigned(buddy, " you must be grade 147 to sign and 137 to execute.");
 }

@@ -1,10 +1,12 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 void	Bureaucrat::signForm(AForm& paper)
 {
-	paper.beSigned(*this, "level not high enough");
+	paper.beSigned(*this, ""); // A machanism for selecting the correct reason would be good
 }
 
 void	Bureaucrat::incrementGrade(void) // <--lowers grade 3 to grade 2

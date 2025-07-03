@@ -44,8 +44,9 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	std::cout << _target << " has been pardoned by Zphod Beedblebrox." << std::endl; 	
 }
 
-void	PresidentialPardonForm::beSigned(Bureaucrat& buddy)
+void	PresidentialPardonForm::beSigned(Bureaucrat& buddy, std::string reason)
 {
+	(void)reason;
 	std::cout << std::endl << "Attempting to sign Presidential Pardon Form... " << std::endl;
 	AForm::beSigned(buddy, " you must be grade 25 to sign and 5 to execute.");
 }

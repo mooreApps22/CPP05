@@ -45,8 +45,9 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	std::cout <<  ((rand() % 2 == 0) ? "successfully!" : "unsuccessfully.") << std::endl;
 }
 
-void	RobotomyRequestForm::beSigned(Bureaucrat& buddy)
+void	RobotomyRequestForm::beSigned(Bureaucrat& buddy, std::string reason)
 {
+	(void)reason;
 	std::cout << std::endl << "Attempting to sign Robotomy Form" << std::endl;
 	AForm::beSigned(buddy, " you must be grade 72 to sign and 45 to execute.");
 }
