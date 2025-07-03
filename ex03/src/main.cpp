@@ -5,8 +5,10 @@
 #include "ShrubberyCreationForm.hpp" 
 #include "RobotomyRequestForm.hpp" 
 #include "PresidentialPardonForm.hpp" 
+#include "Intern.hpp"
+#include <limits>
 
-void	setupSimulation(Bureaucrat*& b1, AForm*& f1)
+void	setupSimulation(Bureaucrat*& b1, AForm*& f1, Intern*& intern)
 {
 	while (true)
 	{
@@ -20,13 +22,28 @@ void	setupSimulation(Bureaucrat*& b1, AForm*& f1)
 		std::cin >> grade;
 
 		std::string	target;	
+
 		std::cout << "Enter a targets name: ";
 		std::cin >> target;
+
+		std::string formName;
+
+		std::cout << "Enter a form name: ";
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::getline(std::cin, formName);
+		std::cout << "\nYou entered the form name: " << formName << std::endl;
 
 		try
 		{
 			b1 = new Bureaucrat(name, grade);
-			f1 = new PresidentialPardonForm(target);	
+			f1 = intern->makeForm(formName, target);	
+			if (!f1)
+			{
+				std::cerr << "\tThe intern can't find whatever file you entered." << std::endl;
+				delete b1;
+				b1 = NULL;
+				continue ;
+			}
 			break ;
 		}
 		catch (const std::exception& ex)
@@ -59,8 +76,9 @@ int	main(void)
 {
 	Bureaucrat*	b1 = NULL;
 	AForm*		f1 = NULL;
+	Intern*		intern = new Intern();
 
-	setupSimulation(b1, f1);
+	setupSimulation(b1, f1, intern);
 	runSimulation(b1, f1);
 
 	std::cout << *b1;
@@ -68,6 +86,7 @@ int	main(void)
 
 	delete b1;
 	delete f1;
+	delete intern;
 
 	return (0);
 }

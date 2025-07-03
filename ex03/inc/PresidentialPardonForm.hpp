@@ -6,7 +6,7 @@ class PresidentialPardonForm : public AForm
 {
     public:
 		//Utils
-		void	beSigned(Bureaucrat& buddy);
+		void	beSigned(Bureaucrat& buddy, std::string reason);
 		void	execute(Bureaucrat const& executor) const;
 
 		// Special Member Functions

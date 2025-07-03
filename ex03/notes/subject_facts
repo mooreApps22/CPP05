@@ -1,40 +1,12 @@
 Basic Facts From Subject:
 
-	AForm
-		- attributes must be private and belong to base class
+	Class Intern
+		AForm*	makeForm(std::string formName, std::string target)
+			std::cout "Intern create" << formName << std::endl;
+				or print explicit error message
 
-		- execute(Bureaucrat const& executor) const
-			calls the form's action in the concrete classes	
-			must check that the form is signed AND the bureaucrat's grade is higher than forms execGrade
-				else throw exception
-			
-			decide to run checks in abstract class or the concretes
-				probably abstract
-
-	Must have three concrete classes:
-		Each takes a <target> as a sole construction parameter
-
-		ShrubberyCreationForm
-			required grade: sign 145, exec 137
-			creates a file <target>_shrubbery in the cwd fill with ASCII trees inside it
-
-		RobotomyRequestForm
-			required grade: sign 72, exec 45 
-			outputs DRILL NOISES and then outputs <target> has been robtomized successfully 50% of the time
-				OR robotomy failed
-
-		PresidentialPardonForm
-			required grade: sign 25, exec 5 
-			<target> has been pardoned by Zphod Beedblebrox
-
-
-		new member function for Bureaucrat class:
-
-			executeForm(AForm const & form) const 
-				this attempt to execute the form
-					if successful, prints something like:
-						<bureaucrat> executed <form>
-					else if failed
-						"print an explicit error message"	
-
-
+{
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+}

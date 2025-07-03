@@ -12,6 +12,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow -g3
 
 INC_DIR = ./inc
 HEADERS = $(INC_DIR)/data.hpp \
+			$(INC_DIR)/Intern.hpp \
 			$(INC_DIR)/Bureaucrat.hpp \
 			$(INC_DIR)/AForm.hpp \
 			$(INC_DIR)/RobotomyRequestForm.hpp \
@@ -27,6 +28,7 @@ SRCS = $(SRC_DIR)/main.cpp \
 		$(SRC_DIR)/RobotomyRequestForm.cpp \
 		$(SRC_DIR)/PresidentialPardonForm.cpp \
 		$(SRC_DIR)/BureaucratUtils.cpp \
+		$(SRC_DIR)/Intern.cpp \
 		$(SRC_DIR)/AFormUtils.cpp
 			
 OBJ_DIR = ./obj
